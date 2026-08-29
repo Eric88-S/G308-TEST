@@ -1,0 +1,258 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-e69a414b030e0ca3a24f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "calculation_interfaces__py",
+					"jsonFile" : "directory-calculation_interfaces__py-66fe29390b0384004c7b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/cx/ros_using/robot_ws/build/calculation_interfaces/calculation_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "calculation_interfaces__rs",
+					"jsonFile" : "directory-calculation_interfaces__rs-3bba18ad84f67ad019df.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/cx/ros_using/robot_ws/build/calculation_interfaces/calculation_interfaces__rs",
+					"targetIndexes" : 
+					[
+						16
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "calculation_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_calculation_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_calculation_interfaces_egg-0ba5a7fe818ecae91c29.json",
+					"name" : "ament_cmake_python_build_calculation_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_calculation_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_calculation_interfaces-892fd5e20526f8ee362f.json",
+					"name" : "ament_cmake_python_copy_calculation_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces-104c58b9f9b3927f4369.json",
+					"name" : "calculation_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__cpp-906c384965630721453c.json",
+					"name" : "calculation_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "calculation_interfaces__py::@a7139daefcfb75f557e5",
+					"jsonFile" : "target-calculation_interfaces__py-9638f84a21ff195beb6f.json",
+					"name" : "calculation_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_generator_c-f00930a938275ecd5d12.json",
+					"name" : "calculation_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_generator_py-9e07793fe47830994ea7.json",
+					"name" : "calculation_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_typesupport_c-e47bee9d99f2d5b53a4e.json",
+					"name" : "calculation_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_typesupport_c__pyext-41a32704efaaa9c43944.json",
+					"name" : "calculation_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_typesupport_cpp-5af51e7a32d01fa97ede.json",
+					"name" : "calculation_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_typesupport_fastrtps_c-103b43341b4efc10e0cc.json",
+					"name" : "calculation_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_typesupport_fastrtps_c__pyext-8dcb0db1130732228ef8.json",
+					"name" : "calculation_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_typesupport_fastrtps_cpp-d1a20b46aa1ded2bde47.json",
+					"name" : "calculation_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_typesupport_introspection_c-92b6f322226d841317f0.json",
+					"name" : "calculation_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_typesupport_introspection_c__pyext-aba33a1cccddc553b307.json",
+					"name" : "calculation_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces__rosidl_typesupport_introspection_cpp-adc4fd2997f1dd3e8535.json",
+					"name" : "calculation_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "calculation_interfaces__rs::@1c649397b61a97828e12",
+					"jsonFile" : "target-calculation_interfaces__rs-a124d7147680ab5f3b69.json",
+					"name" : "calculation_interfaces__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calculation_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calculation_interfaces_uninstall-41a92117c6915f0d1255.json",
+					"name" : "calculation_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-756b007e9e35a70f5bdb.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/cx/ros_using/robot_ws/build/calculation_interfaces",
+		"source" : "/home/cx/ros_using/robot_ws/src/calculation_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

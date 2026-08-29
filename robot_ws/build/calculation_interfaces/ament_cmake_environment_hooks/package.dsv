@@ -1,0 +1,4 @@
+source;share/calculation_interfaces/local_setup.bash
+source;share/calculation_interfaces/local_setup.dsv
+source;share/calculation_interfaces/local_setup.sh
+source;share/calculation_interfaces/local_setup.zsh

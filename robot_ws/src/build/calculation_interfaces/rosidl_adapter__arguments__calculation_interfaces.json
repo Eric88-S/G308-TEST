@@ -1,0 +1,6 @@
+{
+  "package_name": "calculation_interfaces",
+  "non_idl_tuples": [
+    "/home/cx/ros_using/robot_ws/src/calculation_interfaces:msg/CalculationResult.msg"
+  ]
+}

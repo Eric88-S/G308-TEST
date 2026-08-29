@@ -1,0 +1,239 @@
+[0.007s] Invoking command in '/home/cx/ros_using/robot_ws/build/calculation_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/cx/ros_using/robot_ws/src/calculation_interfaces -DCMAKE_INSTALL_PREFIX=/home/cx/ros_using/robot_ws/install/calculation_interfaces
+[0.138s] -- The C compiler identification is GNU 11.4.0
+[0.229s] -- The CXX compiler identification is GNU 11.4.0
+[0.239s] -- Detecting C compiler ABI info
+[0.311s] -- Detecting C compiler ABI info - done
+[0.323s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.323s] -- Detecting C compile features
+[0.324s] -- Detecting C compile features - done
+[0.328s] -- Detecting CXX compiler ABI info
+[0.402s] -- Detecting CXX compiler ABI info - done
+[0.408s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.409s] -- Detecting CXX compile features
+[0.409s] -- Detecting CXX compile features - done
+[0.415s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.551s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.665s] -- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.669s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.675s] -- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.717s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.030s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.233s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.443s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.462s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.463s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.485s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.485s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.485s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.485s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.508s] -- Found PythonExtra: .so  
+[1.594s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.611s] -- Added test 'lint_cmake' to check CMake code style
+[1.612s] -- Added test 'xmllint' to check XML markup files
+[1.614s] -- Configuring done
+[1.636s] -- Generating done
+[1.644s] -- Build files have been written to: /home/cx/ros_using/robot_ws/build/calculation_interfaces
+[1.650s] Invoked command in '/home/cx/ros_using/robot_ws/build/calculation_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/cx/ros_using/robot_ws/src/calculation_interfaces -DCMAKE_INSTALL_PREFIX=/home/cx/ros_using/robot_ws/install/calculation_interfaces
+[1.652s] Invoking command in '/home/cx/ros_using/robot_ws/build/calculation_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cx/ros_using/robot_ws/build/calculation_interfaces -- -j12 -l12
+[1.687s] [  3%] Generating C code for ROS interfaces
+[1.701s] [  6%] Generating Rust code for ROS interfaces
+[1.709s] [  9%] Generating C++ code for ROS interfaces
+[1.715s] [  9%] Built target ament_cmake_python_copy_calculation_interfaces
+[1.951s] running egg_info
+[1.952s] creating calculation_interfaces.egg-info
+[1.952s] writing calculation_interfaces.egg-info/PKG-INFO
+[1.952s] writing dependency_links to calculation_interfaces.egg-info/dependency_links.txt
+[1.952s] writing top-level names to calculation_interfaces.egg-info/top_level.txt
+[1.953s] writing manifest file 'calculation_interfaces.egg-info/SOURCES.txt'
+[1.955s] reading manifest file 'calculation_interfaces.egg-info/SOURCES.txt'
+[1.955s] writing manifest file 'calculation_interfaces.egg-info/SOURCES.txt'
+[1.993s] [  9%] Built target ament_cmake_python_build_calculation_interfaces_egg
+[2.068s] [  9%] Built target calculation_interfaces__cpp
+[2.078s] [ 12%] Generating C++ type support for eProsima Fast-RTPS
+[2.084s] [ 15%] Generating C++ introspection for ROS interfaces
+[2.084s] [ 18%] Generating C++ type support dispatch for ROS interfaces
+[2.103s] [ 18%] Built target calculation_interfaces__rs
+[2.137s] [ 21%] Building C object CMakeFiles/calculation_interfaces__rosidl_generator_c.dir/rosidl_generator_c/calculation_interfaces/msg/detail/calculation_result__functions.c.o
+[2.211s] [ 25%] Linking C shared library libcalculation_interfaces__rosidl_generator_c.so
+[2.266s] [ 25%] Built target calculation_interfaces__rosidl_generator_c
+[2.280s] [ 28%] Generating C introspection for ROS interfaces
+[2.280s] [ 34%] Generating C type support for eProsima Fast-RTPS
+[2.281s] [ 34%] Generating C type support dispatch for ROS interfaces
+[2.374s] [ 37%] Building CXX object CMakeFiles/calculation_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/calculation_interfaces/msg/calculation_result__type_support.cpp.o
+[2.486s] [ 40%] Building CXX object CMakeFiles/calculation_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/calculation_interfaces/msg/detail/calculation_result__type_support.cpp.o
+[2.504s] [ 43%] Building CXX object CMakeFiles/calculation_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/calculation_interfaces/msg/detail/dds_fastrtps/calculation_result__type_support.cpp.o
+[2.675s] [ 46%] Building CXX object CMakeFiles/calculation_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/calculation_interfaces/msg/calculation_result__type_support.cpp.o
+[2.719s] [ 50%] Linking CXX shared library libcalculation_interfaces__rosidl_typesupport_c.so
+[2.719s] [ 53%] Building C object CMakeFiles/calculation_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/calculation_interfaces/msg/detail/calculation_result__type_support.c.o
+[2.763s] [ 56%] Linking C shared library libcalculation_interfaces__rosidl_typesupport_introspection_c.so
+[2.784s] [ 59%] Linking CXX shared library libcalculation_interfaces__rosidl_typesupport_cpp.so
+[2.784s] [ 59%] Built target calculation_interfaces__rosidl_typesupport_c
+[2.791s] [ 62%] Building CXX object CMakeFiles/calculation_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/calculation_interfaces/msg/detail/calculation_result__type_support_c.cpp.o
+[2.801s] [ 62%] Built target calculation_interfaces__rosidl_typesupport_introspection_c
+[2.832s] [ 62%] Built target calculation_interfaces__rosidl_typesupport_cpp
+[2.999s] [ 65%] Linking CXX shared library libcalculation_interfaces__rosidl_typesupport_introspection_cpp.so
+[3.086s] [ 65%] Built target calculation_interfaces__rosidl_typesupport_introspection_cpp
+[3.103s] [ 68%] Linking CXX shared library libcalculation_interfaces__rosidl_typesupport_fastrtps_c.so
+[3.110s] [ 71%] Linking CXX shared library libcalculation_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[3.175s] [ 71%] Built target calculation_interfaces__rosidl_typesupport_fastrtps_c
+[3.187s] [ 71%] Built target calculation_interfaces__rosidl_typesupport_fastrtps_cpp
+[3.205s] [ 71%] Built target calculation_interfaces
+[3.226s] [ 75%] Generating Python code for ROS interfaces
+[3.451s] [ 75%] Built target calculation_interfaces__py
+[3.469s] [ 78%] Building C object CMakeFiles/calculation_interfaces__rosidl_generator_py.dir/rosidl_generator_py/calculation_interfaces/msg/_calculation_result_s.c.o
+[3.549s] [ 81%] Linking C shared library rosidl_generator_py/calculation_interfaces/libcalculation_interfaces__rosidl_generator_py.so
+[3.584s] [ 81%] Built target calculation_interfaces__rosidl_generator_py
+[3.610s] [ 87%] Building C object CMakeFiles/calculation_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/calculation_interfaces/_calculation_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[3.610s] [ 87%] Building C object CMakeFiles/calculation_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/calculation_interfaces/_calculation_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o
+[3.619s] [ 90%] Building C object CMakeFiles/calculation_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/calculation_interfaces/_calculation_interfaces_s.ep.rosidl_typesupport_c.c.o
+[3.705s] [ 93%] Linking C shared library rosidl_generator_py/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[3.736s] [ 93%] Built target calculation_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[3.742s] [ 96%] Linking C shared library rosidl_generator_py/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[3.750s] [100%] Linking C shared library rosidl_generator_py/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[3.770s] [100%] Built target calculation_interfaces__rosidl_typesupport_introspection_c__pyext
+[3.778s] [100%] Built target calculation_interfaces__rosidl_typesupport_c__pyext
+[3.789s] Invoked command in '/home/cx/ros_using/robot_ws/build/calculation_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cx/ros_using/robot_ws/build/calculation_interfaces -- -j12 -l12
+[3.798s] Invoking command in '/home/cx/ros_using/robot_ws/build/calculation_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cx/ros_using/robot_ws/build/calculation_interfaces
+[3.808s] -- Install configuration: ""
+[3.808s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/ament_index/resource_index/rosidl_interfaces/calculation_interfaces
+[3.809s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces
+[3.809s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg
+[3.809s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail
+[3.809s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__functions.c
+[3.809s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__functions.h
+[3.810s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__struct.h
+[3.810s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__type_support.h
+[3.810s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/calculation_result.h
+[3.811s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/rosidl_generator_c__visibility_control.h
+[3.811s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/environment/library_path.sh
+[3.811s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/environment/library_path.dsv
+[3.811s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_generator_c.so
+[3.811s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_generator_c.so" to ""
+[3.811s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces
+[3.812s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg
+[3.812s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[3.812s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail
+[3.812s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__rosidl_typesupport_fastrtps_c.h
+[3.812s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_fastrtps_c.so
+[3.812s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[3.812s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces
+[3.812s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg
+[3.813s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail
+[3.813s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__type_support.c
+[3.813s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__rosidl_typesupport_introspection_c.h
+[3.813s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[3.813s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_introspection_c.so
+[3.813s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[3.813s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_c.so
+[3.814s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_c.so" to ""
+[3.814s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces
+[3.814s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg
+[3.814s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/calculation_result.hpp
+[3.814s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail
+[3.814s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__traits.hpp
+[3.814s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__builder.hpp
+[3.814s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__type_support.hpp
+[3.814s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__struct.hpp
+[3.814s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[3.814s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces
+[3.815s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg
+[3.815s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__rosidl_typesupport_fastrtps_cpp.hpp
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/dds_fastrtps
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[3.815s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[3.815s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces
+[3.815s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg
+[3.815s] -- Up-to-date: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__rosidl_typesupport_introspection_cpp.hpp
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/include/calculation_interfaces/calculation_interfaces/msg/detail/calculation_result__type_support.cpp
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_introspection_cpp.so
+[3.815s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_cpp.so
+[3.815s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_typesupport_cpp.so" to ""
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/environment/pythonpath.sh
+[3.815s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/environment/pythonpath.dsv
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces-0.0.0-py3.10.egg-info
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/_calculation_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/_calculation_interfaces_s.ep.rosidl_typesupport_c.c
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/_calculation_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/msg
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/msg/_calculation_result.py
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/msg/_calculation_result_s.c
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/msg/__init__.py
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/__init__.py
+[3.816s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/libcalculation_interfaces__rosidl_generator_py.so
+[3.844s] Listing '/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces'...
+[3.844s] Compiling '/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/__init__.py'...
+[3.844s] Listing '/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/msg'...
+[3.844s] Compiling '/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/msg/__init__.py'...
+[3.844s] Compiling '/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/msg/_calculation_result.py'...
+[3.848s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[3.849s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[3.849s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[3.853s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[3.853s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[3.853s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages/calculation_interfaces/calculation_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[3.853s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_generator_py.so
+[3.854s] -- Set runtime path of "/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib/libcalculation_interfaces__rosidl_generator_py.so" to ""
+[3.854s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/ament_index/resource_index/rust_packages/calculation_interfaces
+[3.855s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/rust
+[3.855s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/rust/build.rs
+[3.856s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/rust/src
+[3.856s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/rust/src/lib.rs
+[3.856s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/rust/src/msg
+[3.856s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/rust/src/msg/rmw.rs
+[3.856s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/rust/src/msg.rs
+[3.857s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/rust/Cargo.toml
+[3.857s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/msg/CalculationResult.idl
+[3.857s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/msg/CalculationResult.msg
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/ament_index/resource_index/package_run_dependencies/calculation_interfaces
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/ament_index/resource_index/parent_prefix_path/calculation_interfaces
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/environment/ament_prefix_path.sh
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/environment/ament_prefix_path.dsv
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/environment/path.sh
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/environment/path.dsv
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/local_setup.bash
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/local_setup.sh
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/local_setup.zsh
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/local_setup.dsv
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/package.dsv
+[3.858s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/ament_index/resource_index/packages/calculation_interfaces
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/export_calculation_interfaces__rosidl_generator_cExport.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/export_calculation_interfaces__rosidl_generator_cExport-noconfig.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/export_calculation_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/export_calculation_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfaces__rosidl_typesupport_cExport.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/export_calculation_interfaces__rosidl_generator_cppExport.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/export_calculation_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/export_calculation_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[3.859s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfaces__rosidl_typesupport_cppExport.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/export_calculation_interfaces__rosidl_generator_pyExport.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/export_calculation_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/rosidl_cmake-extras.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[3.860s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfacesConfig.cmake
+[3.861s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/cmake/calculation_interfacesConfig-version.cmake
+[3.861s] -- Installing: /home/cx/ros_using/robot_ws/install/calculation_interfaces/share/calculation_interfaces/package.xml
+[3.873s] Invoked command in '/home/cx/ros_using/robot_ws/build/calculation_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cx/ros_using/robot_ws/build/calculation_interfaces

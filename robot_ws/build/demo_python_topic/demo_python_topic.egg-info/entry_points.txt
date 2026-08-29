@@ -1,0 +1,4 @@
+[console_scripts]
+ID_pub_node = demo_python_topic.ID_pub_node:main
+ID_sub_node = demo_python_topic.ID_sub_node:main
+

@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "status_interfaces__rs",
+		"source" : "/home/cx/ros_using/robot_ws/src/build/status_interfaces/status_interfaces__rs"
+	}
+}

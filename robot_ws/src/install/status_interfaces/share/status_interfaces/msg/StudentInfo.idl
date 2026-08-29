@@ -1,0 +1,14 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from status_interfaces/msg/StudentInfo.msg
+// generated code does not contain a copyright notice
+
+
+module status_interfaces {
+  module msg {
+    struct StudentInfo {
+      string student_id;
+
+      string student_name;
+    };
+  };
+};

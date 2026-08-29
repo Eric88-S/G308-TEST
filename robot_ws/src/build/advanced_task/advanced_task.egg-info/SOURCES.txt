@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+../build/advanced_task/advanced_task.egg-info/PKG-INFO
+../build/advanced_task/advanced_task.egg-info/SOURCES.txt
+../build/advanced_task/advanced_task.egg-info/dependency_links.txt
+../build/advanced_task/advanced_task.egg-info/entry_points.txt
+../build/advanced_task/advanced_task.egg-info/requires.txt
+../build/advanced_task/advanced_task.egg-info/top_level.txt
+../build/advanced_task/advanced_task.egg-info/zip-safe
+advanced_task/__init__.py
+advanced_task/display_node.py
+advanced_task/math_generator.py
+advanced_task/recognition_node.py
+advanced_task/result_sub_node.py
+launch/advanced.launch.py
+resource/advanced_task

@@ -1,0 +1,50 @@
+[0.551s] Invoking command in '/home/cx/ros_using/robot_ws/src/advanced_task': AMENT_PREFIX_PATH=/home/cx/ros_using/robot_ws/install/calculation_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cx/ros_using/robot_ws/install/calculation_interfaces LD_LIBRARY_PATH=/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/cx/ros_using/robot_ws/build/advanced_task/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages:/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/advanced_task build --build-base /home/cx/ros_using/robot_ws/build/advanced_task/build install --record /home/cx/ros_using/robot_ws/build/advanced_task/install.log --install-scripts $base/lib/advanced_task --single-version-externally-managed install_data
+[0.713s] running egg_info
+[0.714s] creating ../../build/advanced_task/advanced_task.egg-info
+[0.714s] writing ../../build/advanced_task/advanced_task.egg-info/PKG-INFO
+[0.715s] writing dependency_links to ../../build/advanced_task/advanced_task.egg-info/dependency_links.txt
+[0.715s] writing entry points to ../../build/advanced_task/advanced_task.egg-info/entry_points.txt
+[0.715s] writing requirements to ../../build/advanced_task/advanced_task.egg-info/requires.txt
+[0.715s] writing top-level names to ../../build/advanced_task/advanced_task.egg-info/top_level.txt
+[0.715s] writing manifest file '../../build/advanced_task/advanced_task.egg-info/SOURCES.txt'
+[0.716s] reading manifest file '../../build/advanced_task/advanced_task.egg-info/SOURCES.txt'
+[0.717s] writing manifest file '../../build/advanced_task/advanced_task.egg-info/SOURCES.txt'
+[0.717s] running build
+[0.717s] running build_py
+[0.717s] creating /home/cx/ros_using/robot_ws/build/advanced_task/build
+[0.717s] creating /home/cx/ros_using/robot_ws/build/advanced_task/build/lib
+[0.717s] creating /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task
+[0.717s] copying advanced_task/result_sub_node.py -> /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task
+[0.718s] copying advanced_task/math_generator.py -> /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task
+[0.718s] copying advanced_task/recognition_node.py -> /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task
+[0.718s] copying advanced_task/__init__.py -> /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task
+[0.718s] copying advanced_task/display_node.py -> /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task
+[0.718s] running install
+[0.718s] running install_lib
+[0.719s] creating /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task
+[0.719s] copying /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task/result_sub_node.py -> /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task
+[0.719s] copying /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task/math_generator.py -> /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task
+[0.719s] copying /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task/recognition_node.py -> /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task
+[0.719s] copying /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task/__init__.py -> /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task
+[0.720s] copying /home/cx/ros_using/robot_ws/build/advanced_task/build/lib/advanced_task/display_node.py -> /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task
+[0.720s] byte-compiling /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task/result_sub_node.py to result_sub_node.cpython-310.pyc
+[0.720s] byte-compiling /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task/math_generator.py to math_generator.cpython-310.pyc
+[0.721s] byte-compiling /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task/recognition_node.py to recognition_node.cpython-310.pyc
+[0.723s] byte-compiling /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task/__init__.py to __init__.cpython-310.pyc
+[0.724s] byte-compiling /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task/display_node.py to display_node.cpython-310.pyc
+[0.724s] running install_data
+[0.725s] creating /home/cx/ros_using/robot_ws/install/advanced_task/share/ament_index
+[0.725s] creating /home/cx/ros_using/robot_ws/install/advanced_task/share/ament_index/resource_index
+[0.725s] creating /home/cx/ros_using/robot_ws/install/advanced_task/share/ament_index/resource_index/packages
+[0.725s] copying resource/advanced_task -> /home/cx/ros_using/robot_ws/install/advanced_task/share/ament_index/resource_index/packages
+[0.725s] copying package.xml -> /home/cx/ros_using/robot_ws/install/advanced_task/share/advanced_task
+[0.725s] creating /home/cx/ros_using/robot_ws/install/advanced_task/share/advanced_task/launch
+[0.725s] copying launch/advanced.launch.py -> /home/cx/ros_using/robot_ws/install/advanced_task/share/advanced_task/launch
+[0.725s] running install_egg_info
+[0.727s] Copying ../../build/advanced_task/advanced_task.egg-info to /home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages/advanced_task-0.0.0-py3.10.egg-info
+[0.728s] running install_scripts
+[0.748s] Installing display_node script to /home/cx/ros_using/robot_ws/install/advanced_task/lib/advanced_task
+[0.748s] Installing recognition_node script to /home/cx/ros_using/robot_ws/install/advanced_task/lib/advanced_task
+[0.748s] Installing result_sub_node script to /home/cx/ros_using/robot_ws/install/advanced_task/lib/advanced_task
+[0.748s] writing list of installed files to '/home/cx/ros_using/robot_ws/build/advanced_task/install.log'
+[0.776s] Invoked command in '/home/cx/ros_using/robot_ws/src/advanced_task' returned '0': AMENT_PREFIX_PATH=/home/cx/ros_using/robot_ws/install/calculation_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cx/ros_using/robot_ws/install/calculation_interfaces LD_LIBRARY_PATH=/home/cx/ros_using/robot_ws/install/calculation_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/cx/ros_using/robot_ws/build/advanced_task/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cx/ros_using/robot_ws/install/advanced_task/lib/python3.10/site-packages:/home/cx/ros_using/robot_ws/install/calculation_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/advanced_task build --build-base /home/cx/ros_using/robot_ws/build/advanced_task/build install --record /home/cx/ros_using/robot_ws/build/advanced_task/install.log --install-scripts $base/lib/advanced_task --single-version-externally-managed install_data
