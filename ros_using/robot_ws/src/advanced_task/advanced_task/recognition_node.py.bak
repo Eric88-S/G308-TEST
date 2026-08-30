@@ -1,0 +1,388 @@
+"""
+recognition_node.py — 设备B：核心识别/计算/发布节点
+完整流水线：
+  摄像头取流 → 屏幕定位 → 透视校正 → ROI提取 → 二值化预处理
+  → Tesseract OCR 识别 → 文本清洗纠错 → SymPy 计算 → ROS2 发布结果
+
+架构：采集线程独立运行，识别在 ROS 定时器中执行（使用 MultiThreadedExecutor）。
+"""
+
+import re
+import threading
+import rclpy
+from rclpy.node import Node
+from rclpy.executors import MultiThreadedExecutor
+from calculation_interfaces.msg import CalculationResult
+
+import cv2
+import numpy as np
+import pytesseract
+from sympy import simplify, N
+
+
+# ============================================================
+# OCR 配置
+# ============================================================
+TESSERACT_WHITELIST = '0123456789+-×÷xX*/(). '
+TESSERACT_CONFIG = f'--psm 6 -c tessedit_char_whitelist="{TESSERACT_WHITELIST}"'
+
+
+class RecognitionNode(Node):
+    """
+    识别节点：摄像头取流在独立线程中运行（30fps），
+    识别处理在 ROS 定时器中运行（2Hz），
+    MultiThreadedExecutor 保证两者真正并行。"""
+
+    def __init__(self):
+        super().__init__('recognition_node')
+
+        # ---- ROS2 参数 ----
+        self.declare_parameter('camera_device', 0)
+        self.declare_parameter('frame_width', 1280)
+        self.declare_parameter('frame_height', 720)
+        self.declare_parameter('preview', True)
+        self.declare_parameter('process_rate', 2.0)
+
+        # ---- 创建发布者 ----
+        self.result_publisher = self.create_publisher(
+            CalculationResult, '/calculation_result', 10
+        )#传递的类，话题，长度
+
+        # ---- 初始化摄像头 ----
+        cam_device = self.get_parameter('camera_device').value
+        frame_w = self.get_parameter('frame_width').value
+        frame_h = self.get_parameter('frame_height').value
+
+        self.cap = cv2.VideoCapture(cam_device)
+        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, frame_w)#设置摄像头输出图片宽度
+        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, frame_h)#设置摄像头输出图片高度
+        # 尝试手动曝光降低过曝（不支持的摄像头会自动忽略）
+        self.cap.set(cv2.CAP_PROP_AUTO_EXPOSURE, 1)
+        self.cap.set(cv2.CAP_PROP_EXPOSURE, -6)
+
+        if not self.cap.isOpened():
+            self.get_logger().error(f'无法打开摄像头 /dev/video{cam_device}')
+            raise RuntimeError(f'摄像头 /dev/video{cam_device} 打开失败')#主动报错，终止程序
+
+        actual_w = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+        actual_h = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+        self.get_logger().info(f'摄像头已打开，分辨率 {actual_w:.0f}x{actual_h:.0f}')#保留零位小数，输出整数
+
+        # ---- 共享状态（线程安全） ----
+        self._lock = threading.Lock()#线程锁
+        self.latest_frame = None#存放摄像头最新拍到的图片
+        self.last_expression = ''#保存上一轮OCR的数值图
+        self.last_result = None#保存算式计算后结果
+        self.last_published = ''#记录上一次发布的话题数据防止重复发布
+        self.screen_found = False#标记有没有检测到的目标
+        self.screen_corners = None
+        self._running = True
+
+        # ---- 采集线程：独立跑，不跟 ROS 抢 ----
+        self.capture_thread = threading.Thread(target=self._capture_loop, daemon=True)#线程要运行的函数
+        self.capture_thread.start()
+
+        # ---- ROS 定时器：只负责识别处理 ----
+        process_rate = self.get_parameter('process_rate').value#识别帧率，HZ
+        self.process_timer = self.create_timer(1.0 / process_rate, self.process_callback)#间隔时长
+
+        self.get_logger().info(f'识别节点启动完成 (识别频率 {process_rate}Hz)')
+
+    # ============================================================
+    # 采集线程：循环读帧 + 显示预览（不经过 ROS，不阻塞）
+    # ============================================================
+    def _capture_loop(self):
+        """独立线程：持续采集帧并显示预览，完全不受 ROS 回调影响"""
+        while self._running:
+            ret, frame = self.cap.read()#返回bool值，是否读取，返回图像数组
+            if not ret:
+                continue
+
+            # 存最新帧供识别使用
+            with self._lock:
+                self.latest_frame = frame.copy()
+
+            if not self.get_parameter('preview').value:
+                continue
+
+            display = frame.copy()
+
+            # 画屏幕边框
+            with self._lock:
+                sf = self.screen_found
+                sc = self.screen_corners.copy() if self.screen_corners is not None else None
+                le = self.last_expression
+                lr = self.last_result
+
+            if sf and sc is not None:
+                cv2.drawContours(display, [np.int32(sc)], -1, (0, 255, 0), 3)
+
+            # 始终显示最新结果
+            if le and lr is not None:
+                cv2.putText(display, f'{le} = {lr}',
+                            (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 255, 0), 2)
+            elif sf:
+                cv2.putText(display, 'Detecting...',
+                            (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+            else:
+                h, w = display.shape[:2]
+                cv2.putText(display, 'Searching for screen...',
+                            (w // 4, h // 2), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+
+            cv2.imshow('Recognition - 识别画面 (按q退出)', display)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                self._running = False
+                raise KeyboardInterrupt
+
+    # ============================================================
+    # ROS 定时器：识别处理（2Hz，在不阻塞预览的独立线程中运行）
+    # ============================================================
+    def process_callback(self):
+        with self._lock:
+            frame = self.latest_frame.copy() if self.latest_frame is not None else None
+
+        if frame is None:
+            return
+
+        expression = self.recognize_expression(frame)
+        if expression:
+            result_value = self.calculate_expression(expression)
+            if result_value is not None:
+                with self._lock:
+                    self.last_expression = expression
+                    self.last_result = result_value
+                if expression != self.last_published:
+                    self.publish_result(expression, result_value)
+                    self.last_published = expression
+
+    # ============================================================
+    # 步骤①：屏幕定位 —— 双路径
+    # ============================================================
+    def find_screen_region(self, frame):
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+        candidates = []
+
+        # 路径A：Canny 边缘检测
+        edges = cv2.Canny(blurred, 30, 100)
+        kernel_dilate = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
+        edges_dilated = cv2.dilate(edges, kernel_dilate, iterations=2)
+        edge_contours, _ = cv2.findContours(edges_dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        if edge_contours:
+            for cnt in sorted(edge_contours, key=cv2.contourArea, reverse=True)[:5]:
+                area = cv2.contourArea(cnt)
+                if area < 8000:
+                    continue
+                peri = cv2.arcLength(cnt, True)
+                for eps in [0.02, 0.03, 0.05]:
+                    approx = cv2.approxPolyDP(cnt, eps * peri, True)
+                    if len(approx) == 4:
+                        candidates.append(('edge', area, self._order_corners(approx.reshape(4, 2))))
+                        break
+                    elif len(approx) > 4:
+                        rect = cv2.minAreaRect(cnt)
+                        candidates.append(('edge_r', area, self._order_corners(np.int32(cv2.boxPoints(rect)))))
+                        break
+
+        # 路径B：亮度阈值
+        _, thresh = cv2.threshold(blurred, 140, 255, cv2.THRESH_BINARY)
+        kernel_close = cv2.getStructuringElement(cv2.MORPH_RECT, (35, 35))
+        closed = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel_close)
+        bright_contours, _ = cv2.findContours(closed, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        if bright_contours:
+            for cnt in sorted(bright_contours, key=cv2.contourArea, reverse=True)[:5]:
+                area = cv2.contourArea(cnt)
+                if area < 8000:
+                    continue
+                peri = cv2.arcLength(cnt, True)
+                for eps in [0.02, 0.03, 0.05]:
+                    approx = cv2.approxPolyDP(cnt, eps * peri, True)
+                    if len(approx) == 4:
+                        candidates.append(('bright', area, self._order_corners(approx.reshape(4, 2))))
+                        break
+                    elif len(approx) > 4:
+                        rect = cv2.minAreaRect(cnt)
+                        candidates.append(('bright_r', area, self._order_corners(np.int32(cv2.boxPoints(rect)))))
+                        break
+
+        if not candidates:
+            return None
+
+        candidates.sort(key=lambda x: x[1], reverse=True)
+        for _, area, corners in candidates:
+            w_top = np.linalg.norm(corners[1] - corners[0])
+            w_bot = np.linalg.norm(corners[2] - corners[3])
+            h_lef = np.linalg.norm(corners[3] - corners[0])
+            h_rig = np.linalg.norm(corners[2] - corners[1])
+            avg_w = (w_top + w_bot) / 2
+            avg_h = (h_lef + h_rig) / 2
+            if avg_w < 30 or avg_h < 30:
+                continue
+            if max(avg_w, avg_h) / min(avg_w, avg_h) > 4.0:
+                continue
+            return corners
+        return None
+
+    def _order_corners(self, pts):
+        rect = np.zeros((4, 2), dtype=np.float32)
+        s = pts.sum(axis=1)
+        rect[0] = pts[np.argmin(s)]
+        rect[2] = pts[np.argmax(s)]
+        d = np.diff(pts, axis=1)
+        rect[1] = pts[np.argmin(d)]
+        rect[3] = pts[np.argmax(d)]
+        return rect
+
+    # ============================================================
+    # 步骤②③：透视校正 + ROI 提取
+    # ============================================================
+    def rectify_and_extract(self, frame, corners, output_w=800, output_h=400):
+        dst = np.array([
+            [0, 0], [output_w - 1, 0],
+            [output_w - 1, output_h - 1], [0, output_h - 1]
+        ], dtype=np.float32)
+        M = cv2.getPerspectiveTransform(corners, dst)
+        warped = cv2.warpPerspective(frame, M, (output_w, output_h))
+        top_margin = int(output_h * 0.20)
+        bottom_margin = int(output_h * 0.80)
+        left_margin = int(output_w * 0.05)
+        right_margin = int(output_w * 0.95)
+        roi = warped[top_margin:bottom_margin, left_margin:right_margin]
+        return warped, roi
+
+    # ============================================================
+    # 步骤④⑤：图像预处理 —— 保持简洁，接近原版
+    # ============================================================
+    def preprocess_for_ocr(self, roi):
+        """
+        OCR 预处理：保持简单有效。
+        1. 转灰度
+        2. 自适应二值化（白底黑字）
+        3. 轻量去噪
+        4. 放大 2 倍
+        """
+        gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
+
+        # 自适应阈值 → 白底黑字
+        binary = cv2.adaptiveThreshold(
+            gray, 255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY,
+            21, 5
+        )
+
+        # 轻量开运算去噪
+        kernel = np.ones((2, 2), np.uint8)
+        denoised = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)
+
+        # 放大 2 倍
+        scaled = cv2.resize(denoised, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
+
+        return scaled
+
+    # ============================================================
+    # 步骤⑥：OCR 识别
+    # ============================================================
+    def ocr_expression(self, preprocessed):
+        try:
+            text = pytesseract.image_to_string(preprocessed, config=TESSERACT_CONFIG)
+            return text.strip()
+        except Exception as e:
+            self.get_logger().warn(f'OCR 异常: {e}')
+            return ''
+
+    # ============================================================
+    # 步骤⑥续：文本清洗
+    # ============================================================
+    def clean_expression(self, raw_text):
+        if not raw_text:
+            return ''
+        text = raw_text.replace('\n', '').replace('\r', '').strip()
+        text = text.rstrip('=').strip()
+        text = re.sub(r'[xX\*]', '×', text)
+        text = re.sub(r'(?<=\d)/(?=\d)', '÷', text)
+        text = re.sub(r'[^0-9+\-×÷(). ]', '', text)
+        text = text.replace(' ', '')
+        return text
+
+    # ============================================================
+    # 步骤⑦：SymPy 计算
+    # ============================================================
+    def calculate_expression(self, expression):
+        py_expr = expression.replace('×', '*').replace('÷', '/')
+        try:
+            result = simplify(py_expr)
+            return float(N(result))
+        except Exception as e:
+            self.get_logger().warn(f'计算表达式失败 "{expression}": {e}')
+            return None
+
+    # ============================================================
+    # 步骤⑧：发布结果
+    # ============================================================
+    def publish_result(self, expression, result_value):
+        msg = CalculationResult()
+        msg.raw_expression = expression
+        msg.result = float(result_value)
+        self.result_publisher.publish(msg)
+        self.get_logger().info(f'>>> 发布结果: "{expression}" = {result_value}')
+
+    # ============================================================
+    # 主识别流水线
+    # ============================================================
+    def recognize_expression(self, frame):
+        corners = self.find_screen_region(frame)
+
+        with self._lock:
+            self.screen_found = corners is not None
+            self.screen_corners = corners.copy() if corners is not None else None
+
+        if corners is None:
+            return None
+
+        cv2.drawContours(frame, [np.int32(corners)], -1, (0, 255, 0), 3)
+
+        warped, roi = self.rectify_and_extract(frame, corners)
+        if roi.size == 0:
+            return None
+
+        preprocessed = self.preprocess_for_ocr(roi)
+        raw_text = self.ocr_expression(preprocessed)
+        expression = self.clean_expression(raw_text)
+
+        if expression:
+            cv2.putText(frame, f'OCR: {expression}', (20, 80),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+        return expression if expression else None
+
+    # ============================================================
+    # 析构
+    # ============================================================
+    def destroy_node(self):
+        self._running = False
+        if hasattr(self, 'capture_thread') and self.capture_thread.is_alive():
+            self.capture_thread.join(timeout=1.0)
+        self.cap.release()
+        cv2.destroyAllWindows()
+        super().destroy_node()
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = RecognitionNode()
+    # 使用 MultiThreadedExecutor：采集线程 + ROS 定时器真正并行
+    executor = MultiThreadedExecutor(num_threads=2)
+    executor.add_node(node)
+    try:
+        executor.spin()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        executor.shutdown()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
