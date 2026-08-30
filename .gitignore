@@ -15,6 +15,3 @@ Thumbs.db
 build/
 install/
 log/
-
-# 大文件
-ros_using/some_informations/demo.gif
