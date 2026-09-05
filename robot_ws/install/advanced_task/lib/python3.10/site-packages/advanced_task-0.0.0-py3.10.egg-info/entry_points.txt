@@ -1,5 +1,0 @@
-[console_scripts]
-display_node = advanced_task.display_node:main
-recognition_node = advanced_task.recognition_node:main
-result_sub_node = advanced_task.result_sub_node:main
-

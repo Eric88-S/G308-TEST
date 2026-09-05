@@ -1,7 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "/opt/ros/humble/lib/python3.10/site-packages",
-        "/home/cx/Test/robot_ws/install/status_interfaces/local/lib/python3.10/dist-packages",
-        "/home/cx/Test/robot_ws/install/demo_python_topic/lib/python3.10/site-packages"
-    ]
-}

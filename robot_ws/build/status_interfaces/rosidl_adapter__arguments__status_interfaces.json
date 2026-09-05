@@ -1,6 +1,0 @@
-{
-  "package_name": "status_interfaces",
-  "non_idl_tuples": [
-    "/home/cx/ros_using/robot_ws/src/status_interfaces:msg/StudentInfo.msg"
-  ]
-}
