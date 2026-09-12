@@ -2,11 +2,7 @@ from queue import PriorityQueue
 
 
 def heuristic(now, end):
-    """曼哈顿距离启发函数。
-
-    网格上只能上下左右走，所以从 now 到 end 的最短步数至少是 |dx| + |dy|。
-    因此能保证 A* 找到的路径是最短的。
-    """
+    #曼哈顿距离启发函数。网格上只能上下左右走，所以从 now 到 end 的最短步数至少是 |dx| + |dy|, 因此能保证 A* 找到的路径是最短的。
     x1, y1 = now
     x2, y2 = end
     distance = abs(x1 - x2) + abs(y1 - y2)
@@ -27,12 +23,8 @@ def a_star_search(grid, start, end):
     cost_so_far[start] = 0              # 起点到自己的代价是 0
 
     while not frontier.empty():
-        # 弹出 f 最小的节点 —— A* 的核心：
-        # 不是像 BFS 那样按距离一层层扩，而是优先探索"总代价估计最小"的方向。
         current = frontier.get()[1]
-
-        # 已经到达终点，搜索结束
-        if current == end:
+        if current == end:        # 已经到达终点，搜索结束
             break
 
         # 遍历当前节点的上下左右四个邻居
