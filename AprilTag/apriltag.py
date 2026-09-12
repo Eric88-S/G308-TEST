@@ -7,12 +7,6 @@ import sys
 import cv2
 import numpy as np
 
-# # 修复 Windows 控制台中文输出乱码
-# try:
-#     sys.stdout.reconfigure(encoding="utf-8")
-# except Exception:
-#     pass
-
 FX = 600.0
 FY = 600.0
 CX = 320.0
@@ -52,7 +46,7 @@ def get_detector():
 
 
 def rotation_to_euler(R):
-    """旋转矩阵 -> ZYX 欧拉角 (roll, pitch, yaw),单位:度。"""#绕x右,y下,z外
+    #旋转矩阵 -> ZYX 欧拉角 (roll, pitch, yaw),单位:度
     sy = np.sqrt(R[0, 0] ** 2 + R[1, 0] ** 2)
     if sy > 1e-6:
         roll = np.arctan2(R[2, 1], R[2, 2])
